@@ -26,5 +26,7 @@ public class App extends Application
         primaryStage.setTitle("GameTitle");
         primaryStage.setScene((GUI.getScene1()));
         primaryStage.show();
+        
+        System.out.print("Howdy");
     }
 }// end of App class
