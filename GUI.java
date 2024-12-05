@@ -50,11 +50,11 @@ public class GUI //This class creates all of the GUI for the game.
         Lucida2 = Font.font("Lucida Console", 18);
         TitleLucida = Font.font("Lucida Console", 50);
 
-        Backpack = new ImageView("file:C:/Users/maria/OneDrive/Documents/C.S. Final Project/Images/Backpack.png");
+        Backpack = new ImageView("file:images/Backpack.png");
         Backpack.setFitWidth(175); 
         Backpack.setFitHeight(192);
 
-        Background = new ImageView("file:C:/Users/maria/OneDrive/Documents/C.S. Final Project/Images/Office.png");
+        Background = new ImageView("file:images/Office.png");
         Background.setFitWidth(800);
         Background.setFitHeight(350);
 
