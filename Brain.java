@@ -23,12 +23,12 @@ public class Brain //This class controls the flow of the game.
             
             //Placeholder Variables for EventHandler
             
-            SC2CB1.setOnAction(new EventHandler<ActionEvent>( ) 
-            SC2CB2.setOnAction(new EventHandler<ActionEvent>( ) 
-            SC2CB3.setOnAction(new EventHandler<ActionEvent>( ) 
-            SC2CB4.setOnAction(new EventHandler<ActionEvent>( ) 
-            SC2CIB.setOnAction(new EventHandler<ActionEvent>( ) 
-            SC1B.setOnAction(new EventHandler<ActionEvent>( ) 
+            //SC2CB1.setOnAction(new EventHandler<ActionEvent>( ) 
+            //SC2CB2.setOnAction(new EventHandler<ActionEvent>( ) 
+            //SC2CB3.setOnAction(new EventHandler<ActionEvent>( ) 
+            //SC2CB4.setOnAction(new EventHandler<ActionEvent>( ) 
+            //SC2CIB.setOnAction(new EventHandler<ActionEvent>( ) 
+            //SC1B.setOnAction(new EventHandler<ActionEvent>( ) 
                          
       }                  
 }//End of Brain Class
