@@ -21,10 +21,10 @@ public class Item
       public boolean isToken(){return Type.equals("token");}
       public boolean isQuestItem(){return Type.equals("Quest Item");}
       
-      @Override
+     @Override
       public String toString()
       {
-            return "\n"+Name+"\nType: "+Type+"\nDamage: "+DLable+"\n ";
+            return Name;
       }
       
 }//End of Item class

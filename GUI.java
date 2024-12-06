@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 public class GUI //This class creates all of the GUI for the game.
 {
     // Data Fields organized by Scene Order
+    
     // Scene 1 Data Fields (SC1) L=Layout | LBL=Label | B=Button
     private Scene SC1;
     private VBox SC1L;
@@ -36,7 +37,12 @@ public class GUI //This class creates all of the GUI for the game.
     private VBox SC3L1;
     private ScrollPane SC3L2;
     private Label SC3LBL1, SC3LBL2;
-
+    
+    //Inventory Scene Data Fields (SCI) 
+    private Scene SCI;
+    private ScrollPane SCIL1;    
+    private VBox SCIL2;
+    
     // Objects for Customization
     private Font Lucida;
     private Font TitleLucida;
@@ -61,6 +67,7 @@ public class GUI //This class creates all of the GUI for the game.
         setupScene1();
         setupScene2();
         setupScene3();
+        setupInventoryScene();
     }
 
     private void setupScene1() 
@@ -81,22 +88,29 @@ public class GUI //This class creates all of the GUI for the game.
 
         SC1L.getChildren().addAll(SC1LBL1, SC1LBL2, SC1B);
         SC1 = new Scene(SC1L, 900, 700);
+        
     }
 
-    private void setupScene2() 
+    private Scene setupScene2() 
     {
         // Top BorderPane
         SC2L3 = new HBox();
+        SC2L3.setPrefWidth(900);
+        SC2L3.setPrefHeight(80);
         SC2L3.setPadding(new Insets(30));
-        //SC2L3.setAlignment();
+        SC2L3.setAlignment(Pos.CENTER);
         SC2L3.setSpacing(200);
-        SC2LBL1 = new Label("  Area:");
-        SC2LBL1.setFont(Lucida2);
-        SC2LBL2 = new Label("HP: ");
-        SC2LBL2.setFont(Lucida2);
-        SC2LBL3 = new Label("Arm: ");
-        SC2LBL3.setFont(Lucida2);
+        SC2LBL1 = new Label();
+        SC2LBL1.setFont(Lucida);
+        SC2LBL2 = new Label();
+        SC2LBL2.setFont(Lucida);
+        SC2LBL3 = new Label();
+        SC2LBL3.setFont(Lucida);
+        SC2LBL1.setMaxWidth(Double.MAX_VALUE);
+        SC2LBL2.setMaxWidth(Double.MAX_VALUE);
+        SC2LBL3.setMaxWidth(Double.MAX_VALUE);
         SC2L3.getChildren().addAll(SC2LBL1, SC2LBL2, SC2LBL3);
+
 
         // Center BorderPane
         SC2L2 = new StackPane();
@@ -119,22 +133,22 @@ public class GUI //This class creates all of the GUI for the game.
         SC2L7.setPadding(new Insets(20));
 
         SC2L4 = new VBox(10);
-        SC2CB1 = new Button("C1");
+        SC2CB1 = new Button();
         SC2CB1.setMinSize(600, 52);
         SC2CB1.setFont(Lucida);
-        SC2CB2 = new Button("C2");
+        SC2CB2 = new Button();
         SC2CB2.setMinSize(600, 52);
         SC2CB2.setFont(Lucida);        
-        SC2CB3 = new Button("C3");
+        SC2CB3 = new Button();
         SC2CB3.setMinSize(600, 52);
         SC2CB3.setFont(Lucida);
-        SC2CB4 = new Button("BC");
+        SC2CB4 = new Button();
         SC2CB4.setMinSize(600, 52);
         SC2CB4.setFont(Lucida);
         SC2L4.getChildren().addAll(SC2CB1, SC2CB2, SC2CB3, SC2CB4);       
         SC2L8 = new VBox();
         SC2L8.setSpacing(10);
-        SC2IB = new Button("Inventory");
+        SC2IB = new Button();
         SC2IB.setFont(Lucida);
         SC2IB.setMinSize(180, 40);
         SC2I2 = Backpack;
@@ -149,9 +163,10 @@ public class GUI //This class creates all of the GUI for the game.
         SC2L1.setCenter(SC2L2);
         SC2L1.setBottom(SC2L7);
         SC2 = new Scene(SC2L1, 900, 720);
-    }
+        return SC2;
+    } 
 
-    private void setupScene3() 
+    private Scene setupScene3() 
     {
         SC3L1 = new VBox();
         SC3L1.setAlignment(Pos.CENTER);
@@ -173,16 +188,58 @@ public class GUI //This class creates all of the GUI for the game.
 
         SC3L1.getChildren().addAll(SC3LBL1, SC3L2);
         SC3 = new Scene(SC3L1, 900, 700);
+        return SC3;
     }
-    public Button GetSC2CB1(){return SC2CB1;}
-    public Button GetSC2CB2(){return SC2CB2;}
-    public Button GetSC2CB3(){return SC2CB3;}
-    public Button GetSC2CB4(){return SC2CB4;}
-    public Button GetSC2IB(){return SC1B;}
-    public Button GetSC1B(){return SC2IB;}
+    private Scene setupInventoryScene() 
+    {
+       SCIL2 = new VBox();
+       SCIL1 = new ScrollPane(SCIL2);
+       SCIL1.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+       SCIL1.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+       SCIL1.setFitToWidth(true); 
+       SCIL1.setMaxSize(400, 500); 
+       SCIL1.setContent(SCIL2);
+   
+       SCI = new Scene(SCIL1, 400, 500);
+   
+       return SCI;
+    }
+          //Encounter Button Getter Methods
+          public Button GetSC2CB1(){return SC2CB1;}
+          public Button GetSC2CB2(){return SC2CB2;}
+          public Button GetSC2CB3(){return SC2CB3;}
+          public Button GetSC2CB4(){return SC2CB4;}
+          public Button GetSC2IB(){return SC2IB;}
+          public Button GetSC1B(){return SC1B;}
+          
+          //Encounter Stats Label Getter Methods
+          public Label GetSC2LBL1(){return SC2LBL1;}
+          public Label GetSC2LBL2(){return SC2LBL2;}
+          public Label GetSC2LBL3(){return SC2LBL3;}
+          
+          //Layout getters
+          public VBox GetSCIL2(){return SCIL2;}
+          
+          
+          
+          //Scene Getter Methods
+          public Scene getScene1(){return SC1;}
+          public Scene getScene2(){return SC2;}
+          public Scene getScene3(){return SC3;}
+          public Scene getInventoryScene(){return SCI;}
+    
+    public HBox CreateItemHBox(Item item, Character character)
+    {
+        HBox hBox = new HBox();
+        Label nameLabel = new Label(item.getName());
+        Button equipButton = new Button("Equip");
+        Button unequipButton = new Button("Unequip");
 
-    public Scene getScene1() {return SC1;}
-    public Scene getScene2() {return SC2;}
-    public Scene getScene3() {return SC3;}
+        equipButton.setOnAction(e -> character.equip(item));
+        unequipButton.setOnAction(e -> character.unequip());
+
+        hBox.getChildren().addAll(nameLabel, equipButton, unequipButton);
+        return hBox;    
     }
+}//End of GUI class
 

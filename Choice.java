@@ -9,10 +9,7 @@ public class Choice
             this.Text = Text;
             this.Effect = Effect;
       }
-      public void activateEffect() 
-      {
-        if (Effect != null) {Effect.run();}
-      }
-      public String getText(){return Text;}
+       public String getText(){return Text;}
+       public Runnable getEffect(){return Effect;}
       
 }//End of Choice class

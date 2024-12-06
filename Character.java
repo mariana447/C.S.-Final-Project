@@ -33,7 +33,7 @@ public class Character
                   //NOTE TO SELF: May potentially have to add other option here for if an item is not equipable. 
             }
       }
-      public void unequipedItem()
+      public void unequip()
       {
             this.EquippedArm = fist;
       }
